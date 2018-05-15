@@ -1,0 +1,95 @@
+/* 전체 요소에 박스 사이징을 보더 박스 모델로 하겠다. */
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+body{
+  background-color:#FFF;
+  font-size: 16px;
+  margin: 0;
+}
+h2{
+  margin: 0;
+  font-size: 1em;
+  font-weight: normal;
+}
+
+/* 레이아웃 */
+/*border 안에 3가지 속성이 있다. 구분은 공백으로 되어있다.
+  border-width(테두리)에 top,right,bottom,left가 다 포함되어있다. 
+  auto property는 margin에서 사용한다. padding은 사용 못한다.*/
+.wrapper{
+  
+  background-color: yellow; 
+ }
+.header, .visual, .main, .slogan, .footer{
+  width: 940px;
+  margin: 0 auto;
+}
+.header{
+  background-color: pink;
+  height: 10vh;
+} 
+.visual{
+  background-color: lime;
+  height: 10vh;
+}
+.main{
+  background-color: skyblue; 
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-evenly;
+  /* flex-direction: row;
+  flex-wrap: wrap; */
+  /* flex-flow: row wrap; */
+  /* justify-content: flex-end; 메인축 정렬 */
+  /* align-items: flex-end; 교차축 정렬 */
+  
+   /* overflow: hidden독립적으로 내가 가지고 있는 자식 요소까지 블럭라인을 만든다.; */
+}
+/* 가짜로 만든 인라인 요소 박스 반드시 콘텐트 속성을 써야함 
+   before는 선택자. content도 가짜이다.*/
+/* .main::before{
+content: "첫뻔째 자식 요소";
+background-color: gray;
+color: white;
+} */
+.clearfix::after{
+  content:"";
+  background-color: black;
+  color: white;
+  clear: both;
+  display: block;
+  }
+/*  */
+/* .clearfix{
+  clear: both;
+} */
+.group{
+  height: 20vh;
+ 
+}
+.group1{
+  background-color: rgba(255,255,255,.5);
+  width: 250px;
+  
+}
+.group2{
+  background-color: hsla(120,20%,60%,.5); /*마지막에는 투명도를 설정한다.*/
+  width: 380px;
+}
+.group3{
+  background-color: tomato;
+  width: 190px;
+}
+.slogan{
+background-color: blueviolet;
+height: 10vh;
+
+}
+.footer-bg{
+  background-color: orange;
+}
+.footer{
+  background-color: silver;
+  height: 10vh;
+}
