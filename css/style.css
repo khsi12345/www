@@ -1,17 +1,39 @@
+@import url("normalize.css");
 /* 전체 요소에 박스 사이징을 보더 박스 모델로 하겠다. */
 *, *::before, *::after{
   box-sizing: border-box;
 }
+h1, h2, h3, h4, h5, h6{
+  margin: 0;
+  padding: 0;
+}
+ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+a{
+  /* inherit는 부모 값을 상속받는다. */
+ color: inherit;
+ text-decoration: none;
+}
+/* 숨김 콘텐츠 */
+.readable-hidden{
+  background: yellow;
+  position: absolute;
+  left: -99999px;
+}
 body{
   background-color:#FFF;
   font-size: 16px;
-  margin: 0;
+  color: #181818;
 }
 h2{
   margin: 0;
   font-size: 1em;
   font-weight: normal;
 }
+/*  */
 
 /* 레이아웃 */
 /*border 안에 3가지 속성이 있다. 구분은 공백으로 되어있다.
@@ -26,9 +48,48 @@ h2{
   margin: 0 auto;
 }
 .header{
-  background-color: pink;
-  height: 10vh;
+  background-color: #fff;
+  padding: 0 30px;
+  position: relative;
 } 
+/* 로고 */
+.logo{
+  position: absolute;
+  top: 45px;
+  left: 65px;
+}
+/* member 링크 */
+.member{
+  
+  text-align: right;
+  font-size:  0;
+  padding: 10px 0;
+  position: relative;
+  right: -10px;
+}
+/* member에 포함된 li */
+.member li{
+  
+  /* 모양은 inline 성격은 블록 */
+  display: inline-block;  
+  font-size: 16px;
+  /* 소문자를 대문자로 변환 */
+  text-transform: uppercase;
+ 
+}
+
+.member a{
+  padding: 5px 10px;
+ 
+}
+/* li가 가지고 있는 자식 중에 자식번째를 선택하겠다 */
+/* .member li:nth-child(2){
+  background-color: lime;
+} */
+/* li가 가지고 있는 자식 중에 2번째 부터 선택하겠다. ::before(가짜 선택자)-li 앞에 위치.  */
+.member li:nth-child(n+2)::before{
+  content: ":";
+}
 .visual{
   background-color: lime;
   height: 10vh;
