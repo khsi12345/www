@@ -60,7 +60,8 @@ h2{
 }
 /* member 링크 */
 .member{
-  
+  /*text-align은 member 클래스의 자식 요소의 li의 방향을 설정한다.
+    즉, text-align:rignt 값을 줘서 member의 li 방향을 right로 지정했다.*/
   text-align: right;
   font-size:  0;
   padding: 10px 0;
