@@ -1,4 +1,6 @@
+@import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
 @import url("normalize.css");
+@import url("fontello.css");
 /* 전체 요소에 박스 사이징을 보더 박스 모델로 하겠다. */
 *, *::before, *::after{
   box-sizing: border-box;
@@ -18,15 +20,15 @@ a{
  text-decoration: none;
 }
 /* 숨김 콘텐츠 */
-.readable-hidden{
-  background: yellow;
-  position: absolute;
-  left: -99999px;
-}
+
 body{
   background-color:#FFF;
-  font-size: 16px;
+  font-size: 1.4rem;
   color: #181818;
+  font-family: 'Spoqa Han Sans';
+}
+html{
+  font-size: 10px;
 }
 h2{
   margin: 0;
@@ -41,7 +43,11 @@ h2{
   auto property는 margin에서 사용한다. padding은 사용 못한다.*/
 .wrapper{
   
-  background-color: yellow; 
+  background-color: yellow;
+  background-image: url("images/bg_flower.png");
+  background-repeat: 50% 0;
+   /*배경은 고정이고 콘텐츠만 움직인다.*/
+  background-attachment: fixed;
  }
 .header, .visual, .main, .slogan, .footer{
   width: 940px;
@@ -49,8 +55,9 @@ h2{
 }
 .header{
   background-color: #fff;
-  padding: 0 30px;
+  padding: 0 30px 40px;
   position: relative;
+  border-radius: 0 0 15px 15px;
 } 
 /* 로고 */
 .logo{
@@ -73,7 +80,7 @@ h2{
   
   /* 모양은 inline 성격은 블록 */
   display: inline-block;  
-  font-size: 16px;
+  font-size: 1.4rem;
   /* 소문자를 대문자로 변환 */
   text-transform: uppercase;
  
@@ -91,12 +98,137 @@ h2{
 .member li:nth-child(n+2)::before{
   content: ":";
 }
+/* 메인 메뉴 */
+.readable-hidden{
+  position: absolute;
+  /* h2.readable-hidden의 사이즈를 width 1 height 1을 주고 0,0,0,0 사이즈로 잘랐다.
+     그래서 디자인이 숨김처리 되어 보인다. */
+  width: 1px;
+  height: 1px;
+  /* 네모 모양으로 자른다.(클립) */
+  clip: rect(0,0,0,0);
+  margin: -1px;
+  /* overflow: hidden; */
+
+}
+.menu{
+  padding-left: 225px;
+  /* background: orange; */
+  /* background-color: yellow; */
+  /* 배경 이미지. bgi 에밋. 박스 사이즈에 맞춰 설정된다. */
+  /* background-image: url("images/ani_flower_03.png"); */
+  /* background-repeat: no-repeat; */
+  /* 배경 이미지 포지션 x축 y축 */
+  /* background-position: 50% 30%; */
+  /* 배경 이미지 사이즈 */
+  /* background-size: 200px 200px; */
+  /* 배경 색, 배경 이미지 경로, 배경 no-repeat, 배경 이미지 포지션, 배경 이미지 사이즈 */
+  /* background: yellow url("images/ani_flower_03.png") no-repeat 50% 30% /200px 2200px; */
+  background: linear-gradient(to bottom, #db8c2b 1%,#e58124 33%,#e58124 65%,#db8c2b 100%);
+  background-color: #e58124;
+  /* 배경 이미지 그라데이션 */
+  /* background-image: linear-gradient(-45deg, red 0%, green 30%, blue 100%); */
+  /* background-image: repeating-linear-gradient(-45deg, red 0, red 50px, green 50px, green 100px); */
+  /* 보더 속성 */
+  /* border는 박스 사이즈에 영향을 준다. 각종 데코 가능 */
+  border-top: 2px solid #000;
+  /* 박스 모서리의 둥근 모양 설정 */
+  border-radius: 0 0 5px 5px;
+  /* border-bottom-right-radius: 100px 50px; */
+  /* border-bottom-left-radius: 100px 50px; */
+  /* outline은 박스 사이즈에 영향 안준다. 4 방향 고정(선택 불가능).  데코 가능 */
+  /* outline: 10px dashed blue; */
+  /* 박스 쉐도는 박스 사이즈에 영향 안준다. 데코 불가능(그림자는 가능) 
+     x축 y축*/
+  /* box-shadow: 0 20px 0 0 green; */
+  height: 47px;
+}
+.menu-item{
+
+  float: left;
+  position: relative;
+  }
+  .menu-item-text{
+    color: #fff;
+    font-weight: 700;
+    padding: 0 20px;
+    font-size: 1.6rem;
+    text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000;
+    display: block;
+    line-height: 45px;
+    border-left: 2px solid rgba(255, 255, 255, 0.5);
+  }
+  /* 메뉴 아이템 텍스트에 마우스를 올릴때 에프터가 적용된다. */
+  .menu-item-text:hover::after{
+    content: "";
+    background-color: #000;
+    display: block;
+    height: 2px;
+  }
+  /* 메뉴에 마우스를 올려을때 */
+  .menu-item-text:hover{
+    color: yellow;
+    cursor: pointer;
+    
+  }
+.submenu{
+  position: absolute;
+  top: 50px;
+  /* 부모가 블록 박스만 사용 가능하고 줄바꿈을 하지 않는다. 블록 박스 안에 포함된 인라인 박스의 줄바꿈을 금지한다. */
+  white-space: nowrap;
+}
+.submenu li{
+  display: inline-block;
+  cursor: pointer;
+}
+.submenu a{
+  display: inline-block;
+  padding: 8px 5px 10px 0;
+  margin-right: 10px;
+}
+.submenu a::before{
+  font-family: "fontello";
+  content: '\f192';
+}
+.submenu a:hover::before{
+  content: '\e800';
+  
+}
+
+/* 메뉴 아이템 서브메뉴에 자식번째 */
+.menu-item:nth-child(1) .submenu{
+  display: none;
+  left: 0;
+}
+.menu-item:nth-child(2) .submenu{
+  display: none;
+  left: 0;
+}
+.menu-item:nth-child(3) .submenu{
+  display: none;
+  left: 0;
+}
+.menu-item:nth-child(4) .submenu{
+  display: none;
+  right: 0;
+  
+}
+.menu-item:nth-child(5) .submenu{
+  display: none;
+  right: 0;
+}
+.menu-item:nth-child(6) .submenu{
+  display: none;
+  right: 0;
+}
+
 .visual{
   background-color: lime;
   height: 10vh;
 }
 .main{
   background-color: skyblue; 
+  border-radius: 15px 15px 0 0;
   padding: 30px 15px;
    /* overflow: hidden독립적으로 내가 가지고 있는 자식 요소까지 블럭라인을 만든다.; */
 }
