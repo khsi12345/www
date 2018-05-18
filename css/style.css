@@ -1,3 +1,5 @@
+/* 인코딩 선언이 제일 첫 줄에 와야한다. */
+@charset "utf-8";
 @import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
 @import url("normalize.css");
 @import url("fontello.css");
@@ -30,11 +32,7 @@ body{
 html{
   font-size: 10px;
 }
-h2{
-  margin: 0;
-  font-size: 1em;
-  font-weight: normal;
-}
+
 /*  */
 
 /* 레이아웃 */
@@ -42,10 +40,9 @@ h2{
   border-width(테두리)에 top,right,bottom,left가 다 포함되어있다. 
   auto property는 margin에서 사용한다. padding은 사용 못한다.*/
 .wrapper{
-  
-  background-color: yellow;
   background-image: url("images/bg_flower.png");
-  background-repeat: 50% 0;
+  background-position: 50% 0;
+  background-repeat: no-repeat;
    /*배경은 고정이고 콘텐츠만 움직인다.*/
   background-attachment: fixed;
  }
@@ -124,7 +121,7 @@ h2{
   /* background-size: 200px 200px; */
   /* 배경 색, 배경 이미지 경로, 배경 no-repeat, 배경 이미지 포지션, 배경 이미지 사이즈 */
   /* background: yellow url("images/ani_flower_03.png") no-repeat 50% 30% /200px 2200px; */
-  background: linear-gradient(to bottom, #db8c2b 1%,#e58124 33%,#e58124 65%,#db8c2b 100%);
+  background:  linear-gradient(to bottom, #db8c2b 1%,#e58124 33%,#e58124 65%,#db8c2b 100%);
   background-color: #e58124;
   /* 배경 이미지 그라데이션 */
   /* background-image: linear-gradient(-45deg, red 0%, green 30%, blue 100%); */
@@ -154,7 +151,7 @@ h2{
     padding: 0 20px;
     font-size: 1.6rem;
     text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000;
-    display: block;
+    display: inline-block;
     line-height: 45px;
     border-left: 2px solid rgba(255, 255, 255, 0.5);
   }
@@ -210,21 +207,97 @@ h2{
 }
 .menu-item:nth-child(4) .submenu{
   display: none;
-  right: 0;
+  left: 0;
   
 }
 .menu-item:nth-child(5) .submenu{
   display: none;
-  right: 0;
+  left: 0;
 }
 .menu-item:nth-child(6) .submenu{
   display: none;
-  right: 0;
+  left: 0;
 }
-
+/* 비주얼 */
+@keyframes textAni{
+  0%{
+    font-size: 12px;
+    color: rgba(0,0,0,0);
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  100%{
+    font-size: 24px;
+    color: rgba(0,0,0,1);
+    transform: translate(400px, 75px);
+    opacity: 1;
+  }
+}
+@keyframes flowerAni{
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
 .visual{
-  background-color: lime;
-  height: 10vh;
+  
+  height: 120px;
+  position: relative;
+}
+.visual::before, .visual::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+}
+.visual::before{
+  
+  background-image: url("images/ani_flower_01.png"), url("images/ani_flower_02.png");
+  background-repeat: no-repeat;
+  background-position: 0 -10px, 670px 0;
+  /* animation: flowerAni 5 timing-function delay 5 direction fill-mode; */
+  animation-name: flowerAni;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+.visual::after{
+
+  background-image: url("images/ani_flower_03.png"), url("images/ani_flower_04.png");
+  background-repeat: no-repeat;
+  background-position: 300px 0, 800px 0;
+  /* animation: flowerAni 5 timing-function delay 5 direction fill-mode;*/
+  animation-name: flowerAni;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-delay: 1s;
+} 
+.visual-text{
+  
+  /* 글꼴의 순위 1,2,3,4 */
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  /* 애니메이션 실행 필수 조건 name, duration */
+  /* animation-name: textAni;
+  animation-duration: 3000ms;
+  /* 애니메이션 끝나고 유지 된다. */
+  /* animation-fill-mode: forwards; */
+  position: relative;
+  z-index: 10;
+  /* 에니메이션 반복 횟수 모드 설정 */
+  /* animation-iteration-count: 3; */
+  /* animation-play-state: paused; */
+  /* animation-timing-function: cubic-bezier(16,-0.36,.83,.67); */
+  /* 애니메이션 진행 방향 */
+  /* animation-direction: alternate;
+  animation-delay: 2s;
+  opacity: 2; */ 
+  /* 애니메이션 이름, 지속 시간, ?, 반복 회수, 진행 방향, 딜레이 */
+  animation: textAni 500ms forwards infinite alternate ease-in-out 2s;
 }
 .main{
   background-color: skyblue; 

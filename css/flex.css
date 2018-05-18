@@ -1,17 +1,37 @@
+@import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
+@import url("normalize.css");
+@import url("fontello.css");
 /* 전체 요소에 박스 사이징을 보더 박스 모델로 하겠다. */
 *, *::before, *::after{
   box-sizing: border-box;
 }
+h1, h2, h3, h4, h5, h6{
+  margin: 0;
+  padding: 0;
+}
+ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+a{
+  /* inherit는 부모 값을 상속받는다. */
+ color: inherit;
+ text-decoration: none;
+}
+/* 숨김 콘텐츠 */
+
 body{
   background-color:#FFF;
-  font-size: 16px;
-  margin: 0;
+  font-size: 1.4rem;
+  color: #181818;
+  font-family: 'Spoqa Han Sans';
 }
-h2{
-  margin: 0;
-  font-size: 1em;
-  font-weight: normal;
+html{
+  font-size: 10px;
 }
+
+/*  */
 
 /* 레이아웃 */
 /*border 안에 3가지 속성이 있다. 구분은 공백으로 되어있다.
@@ -19,16 +39,122 @@ h2{
   auto property는 margin에서 사용한다. padding은 사용 못한다.*/
 .wrapper{
   
-  background-color: yellow; 
+  background-color: yellow;
+  background-image: url("images/bg_flower.png");
+  background-repeat: 50% 0;
+   /*배경은 고정이고 콘텐츠만 움직인다.*/
+  background-attachment: fixed;
  }
 .header, .visual, .main, .slogan, .footer{
   width: 940px;
   margin: 0 auto;
 }
 .header{
-  background-color: pink;
-  height: 10vh;
+  background-color: white;
+  padding: 0 30px 40px;
+  position: relative;
 } 
+/* 로고 */
+.logo{
+  padding: 45px 0 0 35px;
+}
+.readable-hidden{
+  position: absolute;
+  /* h2.readable-hidden의 사이즈를 width 1 height 1을 주고 0,0,0,0 사이즈로 잘랐다.
+     그래서 디자인이 숨김처리 되어 보인다. */
+  width: 1px;
+  height: 1px;
+  /* 네모 모양으로 자른다.(클립) */
+  clip: rect(0,0,0,0);
+  margin: -1px;
+  /* overflow: hidden; */
+
+}
+/* 멤버 */
+.member{
+  
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -70px;
+  margin-right: -10px;
+  top: 10px;
+  right: 30px;
+}
+.member li{
+  
+  /* 소문자를 대문자로 변환 */
+  text-transform: uppercase;
+ 
+}
+
+.member a{
+  padding: 5px 10px;
+ 
+}
+/* li가 가지고 있는 자식 중에 자식번째를 선택하겠다 */
+/* .member li:nth-child(2){
+  background-color: lime;
+} */
+/* li가 가지고 있는 자식 중에 2번째 부터 선택하겠다. ::before(가짜 선택자)-li 앞에 위치.  */
+.member li:nth-child(n+2)::before{
+  content: ":";
+}
+/* 메인 메뉴 */
+.menu{
+  background:  linear-gradient(to bottom, #db8c2b 1%,#e58124 33%,#e58124 65%,#db8c2b 100%);
+  background-color: #e58124;
+  border-top: 2px solid #000;
+  margin-top: 10px;
+  padding-left: 225px;
+   /*메뉴 클래스에서 플렉스 모드로 설정했기 때문에 메뉴는 플렉스 컨테이너가 되고 자식 클래스인 메뉴 아이템은 플렉스 아이템이 되고 플렉스 모드가 적용된다.  */
+  display: flex;
+  /* 남아있는 여백을 알아서 플렉스 아이템에 나눠줘. */
+  align-items: center;
+  height: 47px;
+  line-height: 45px;
+}
+/* 메뉴 아이템 클래스는 플렉스 컨테이너 */
+.menu-item{
+  position: relative;
+  border-left: 2px solid rgba(255, 255, 255, 0.5);
+  /* flex-basis: 130px; */
+  /* 플렉스는 유연하다.  */
+  flex-grow: 1;
+  text-align: center;
+
+}
+.menu-item-text{
+
+  color: #fff;
+  font-weight: 700;
+ 
+  font-size: 1.6rem;
+  text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000;
+  
+ 
+}
+/* 서브 메뉴 */
+.submenu{
+  position: absolute;
+  top: 35px;
+  white-space: nowrap;
+  display: none;
+}
+.submenu a{
+  display: inline-block;
+  padding: 8px 5px 10px 0;
+  margin-right: 10px;
+}
+.submenu a::before{
+  font-family: "fontello";
+  content: '\f192';
+}
+.submenu a:hover::before{
+  content: '\e800';
+  
+}
+
+
 .visual{
   background-color: lime;
   height: 10vh;
