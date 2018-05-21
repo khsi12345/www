@@ -42,6 +42,7 @@ html{
 .wrapper{
   background-image: url("images/bg_flower.png");
   background-position: 50% 0;
+  /* 배경 반복 설정 */
   background-repeat: no-repeat;
    /*배경은 고정이고 콘텐츠만 움직인다.*/
   background-attachment: fixed;
@@ -96,7 +97,7 @@ html{
   content: ":";
 }
 /* 메인 메뉴 */
-.readable-hidden{
+.readable-hidden, legend{
   position: absolute;
   /* h2.readable-hidden의 사이즈를 width 1 height 1을 주고 0,0,0,0 사이즈로 잘랐다.
      그래서 디자인이 숨김처리 되어 보인다. */
@@ -224,6 +225,7 @@ html{
     font-size: 12px;
     color: rgba(0,0,0,0);
     transform: translate(0, 0);
+    /* 박스 유지 */
     opacity: 1;
   }
   100%{
@@ -238,6 +240,7 @@ html{
     opacity: 1;
   }
   100%{
+    /* 박스 투명 */
     opacity: 0;
   }
 }
@@ -258,12 +261,14 @@ html{
 .visual::before{
   
   background-image: url("images/ani_flower_01.png"), url("images/ani_flower_02.png");
+  /* 배경 반복 설정 */
   background-repeat: no-repeat;
+  /* 배경 위치 */
   background-position: 0 -10px, 670px 0;
   /* animation: flowerAni 5 timing-function delay 5 direction fill-mode; */
   animation-name: flowerAni;
   animation-duration: 5s;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 3;
   animation-direction: alternate;
 }
 .visual::after{
@@ -274,11 +279,11 @@ html{
   /* animation: flowerAni 5 timing-function delay 5 direction fill-mode;*/
   animation-name: flowerAni;
   animation-duration: 5s;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 3;
   animation-delay: 1s;
 } 
 .visual-text{
-  
+  /* background-color: purple; */
   /* 글꼴의 순위 1,2,3,4 */
   font-family: Georgia, 'Times New Roman', Times, serif;
   /* 애니메이션 실행 필수 조건 name, duration */
@@ -286,7 +291,7 @@ html{
   animation-duration: 3000ms;
   /* 애니메이션 끝나고 유지 된다. */
   /* animation-fill-mode: forwards; */
-  position: relative;
+  position: absolute;
   z-index: 10;
   /* 에니메이션 반복 횟수 모드 설정 */
   /* animation-iteration-count: 3; */
@@ -297,13 +302,14 @@ html{
   animation-delay: 2s;
   opacity: 2; */ 
   /* 애니메이션 이름, 지속 시간, ?, 반복 회수, 진행 방향, 딜레이 */
-  animation: textAni 500ms forwards infinite alternate ease-in-out 2s;
+  animation: textAni 5000ms forwards infinite alternate ease-in-out 2s;
 }
 .main{
-  background-color: skyblue; 
+  background-color: white; 
   border-radius: 15px 15px 0 0;
   padding: 30px 15px;
    /* overflow: hidden독립적으로 내가 가지고 있는 자식 요소까지 블럭라인을 만든다.; */
+
 }
 /* 가짜로 만든 인라인 요소 박스 반드시 콘텐트 속성을 써야함 
    before는 선택자. content도 가짜이다.*/
@@ -324,7 +330,6 @@ color: white;
   clear: both;
 } */
 .group{
-  height: 30vh;
   float: left;
   margin: 0 15px;
 }
@@ -341,11 +346,179 @@ color: white;
   background-color: tomato;
   width: 189px;
 }
+/* 로그인 */
+.login{
+  background: radial-gradient(circle at right top, #ea892e, #ce5327);
+  background-color: #ce5327;
+  border-radius: 5px 5px 5px 5px;
+  padding: 10px;
+  box-shadow: 5px 5px 0 0 #aaa;
+}
+.login-heading{
+  color: #ff0;
+  font-size: 1.5rem;
+}
+.login-form{
+  background-color: #fff;
+  border-radius: 5px 5px 0 0;
+  padding: 10px 10px 0 10px;
+  margin-top: 10px;
+}
+.login-form fieldset{
+  position: relative;
+  margin: 0;
+  padding: 0 0 10px 0;
+  border: 0;
+  border-bottom: 1px solid #aaa;
+}
+.login-form [type="email"], .login-form [type="password"]{
+  width: 100px;
+  height: 22px;
+  border: 1px solid #aaa;
+  padding: 1px 1px 1px 5px;
+}
+
+.user-id{
+  margin-bottom: 6px;
+}
+.sign{
+  background-color: #fff;
+  border-radius: 0 0 5px 5px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px;
+}
+.sign a{
+  letter-spacing: -1px;
+  padding: 5px 0;
+}
+.sign .icon-right-open::before{
+  color: #db8c2b;
+}
+.login-form [for="user-id"], .login-form [for="user-pw"]{
+  width: 4em;
+  display: inline-block;
+}
+.btn-login{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border: 0 solid #aaa;
+  border-radius: 3px;
+  background: orangered;
+  color: #fff;
+  font: inherit;
+}
+/* .login{
+  background-color: orange;
+  border-radius: 5px 5px 5px 5px;
+  padding: 10px;
+}
+.login-heading{
+  color: ivory;
+  padding: 15px 0 0 20px;
+}
+.login-form{
+  padding: 10px;
+  background-color: #fff;
+}
+.login-form fieldset{
+  position: relative;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+.user-id{
+  margin: 0 0 8px 0;
+}
+.user-id label{
+  width: 51px;
+  display: inline-block;
+}
+.user-id input{
+  width: 98px;
+}
+.user-pw{
+  margin: 0 0 0 0;
+  padding: 0 0 10px 0;
+  border-bottom: 2px solid gray;
+}
+.user-pw label{
+  display: inline-block;
+}
+.user-pw input{
+  width: 98px;
+}
+.btn-login{
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  top: 0;
+  right: 0;
+  background-color: orange;
+  color: #fff;
+  border-radius: 5px 5px 5px 5px;
+  border: none;
+}
+
+
+.sign{
+  background-color: #fff;
+  height: 42px;
+}
+.sign li:nth-child(1){
+  float: left;
+}
+.sign li:nth-child(2){
+  float: right;
+}
+.sign a{
+  padding: 0 5px;
+} */
+
+/* 유효성 검사 배너 */
+.validation-list{
+
+  margin-top: 25px;
+}
+.validation-list li{
+  margin: 10px 0;
+}
+.validation-list a{
+  /* 백그라운드 이미지 밑에 리니어 그라데이션을 깔았다. 이미지를 x축으로 15px y축으로 50% 움직였다. */
+  background: url("images/validation_icon.png") no-repeat 15px 50%, linear-gradient(to bottom, #eee, #ccc);
+  background-color: #ccc;
+  display: block;
+  border: 1px solid #aaa;
+  border-radius: 30px;
+  line-height: 30px;
+  padding-left: 45px;
+}
+.term{
+  height: 152px;
+  background: linear-gradient(to bottom, #eee, #ccc );
+  border-radius: 8px;
+  padding: 20px 16px;
+}
+.term-ground{
+padding-bottom: 20px;
+}
+img{
+  float: left;
+}
+.w3c-tutorial{
+  float: right;
+  
+}
+  /* 슬로건 */
 .slogan{
 background-color: blueviolet;
 height: 10vh;
 clear: both;
-
+font-weight: inherit; 
 }
 .footer-bg{
   background-color: orange;
