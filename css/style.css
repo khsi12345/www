@@ -1,4 +1,3 @@
-/* 인코딩 선언이 제일 첫 줄에 와야한다. */
 @charset "utf-8";
 @import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
 @import url("normalize.css");
@@ -320,8 +319,6 @@ color: white;
 } */
 .clearfix::after{
   content:"";
-  background-color: black;
-  color: white;
   clear: both;
   display: block;
   }
@@ -334,12 +331,11 @@ color: white;
   margin: 0 15px;
 }
 .group1{
-  background-color: rgba(255,255,255,.5);
+  background-color: rgba(255,255,255,.5);/*마지막에는 투명도를 설정한다.*/
   width: 250px;
   float: left;
 }
 .group2{
-  background-color: hsla(120,20%,60%,.5); /*마지막에는 투명도를 설정한다.*/
   width: 380px;
 }
 .group3{
@@ -497,21 +493,147 @@ color: white;
   line-height: 30px;
   padding-left: 45px;
 }
+/* 웹 관련 용어 */
 .term{
-  height: 152px;
+  /* height: 152px; */
   background: linear-gradient(to bottom, #eee, #ccc );
   border-radius: 8px;
-  padding: 20px 16px;
+  padding: 10px 15px;
+  margin-top: 20px;
 }
 .term-ground{
-padding-bottom: 20px;
+  font-size: 1.5rem;
+  
 }
-img{
+.term-list{
+  margin: 10px 0 0 0;
+}
+/* img{
+  float: left;
+  padding-right: 14px;
+} */
+.term-list-subject{
+  float: right;
+  color: cornflowerblue;
+  font-weight: 800;
+  width: 145px;
+}
+.term-list-thumbnail{
+  margin: 0;
   float: left;
 }
-.w3c-tutorial{
+/* .term-list :nth-child(4), .term-list :nth-child(5){
+  margin-top: 10px;
+}
+.term-list :nth-child(4), .term-list :nth-child(6){
+  float: left;
+  }
+.term-list :nth-child(5){
   float: right;
+} */
+.term-list-brief{
+   float: right;
+   margin: 0;
+   width: 145px;
+   margin-top: 5px;
+   line-height: 1.5;
+}
+/* 자료 검색 */
+/*  */
+/* .search-form fieldset{
+  background-color: yellow;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
   
+}  */
+.search-form{
+  background: linear-gradient(to bottom, #eee, #ccc);
+  background-color: #ccc;
+  border: 1px solid #aaa;
+  border-bottom: 0;
+  border-radius: 15px 15px 0 0;
+  padding: 15px 25px 10px;
+}
+.search-form fieldset{
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.search-form-wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  
+  
+}
+
+.search-form [type="search"]{
+  width: 200px;
+  height: 24px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  padding: 1px 1px 1px 5px;
+}
+.btn-search{
+  background: #333;
+  color: #fff;
+  font: inherit;
+  border: 1px solid #aaa;
+  height: 24px;
+  border-radius: 3px;
+}
+/* 게시판 */
+.board{
+  /* background-color: green; */
+  position: relative;
+  margin-top: 20px;
+}
+
+.notice-heading.tab, .pds-heading.tab{
+  position: absolute;
+  border: 1px solid #ccc;
+  width: 82px;
+  height: 28px;
+  cursor: pointer;
+  background: linear-gradient(to bottom, #eee, #ccc);
+  background-color: #ccc;
+  border-radius: 5px 5px 0 0;
+  font-size: 1.8rem;
+  text-align: center;
+  font: inherit;
+  line-height: 30px;
+}
+
+.pds-heading.tab{
+  float: left;
+  top: 0;
+  left: 82px;;
+}
+
+.notice-list {
+  /* background-color: yellow; */
+  padding-top: 48px;
+}
+.pds-list, .pds a{
+  display: none;
+}
+.notice-list li, .pds-list li{
+/* background-color: pink; */
+display: flex;
+justify-content: space-between;
+line-height: 35px;
+/* .pds-list li에 적용 */
+clear: both;
+}
+/* .notice-list a{
+  background-color: blue;
+} */
+.notice-more, .pds-more{
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 16px;
 }
   /* 슬로건 */
 .slogan{
