@@ -1,0 +1,836 @@
+@charset "utf-8";
+@import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
+@import url("normalize.css");
+@import url("fontello.css");
+/* 전체 요소에 박스 사이징을 보더 박스 모델로 하겠다. */
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+h1, h2, h3, h4, h5, h6{
+  margin: 0;
+  padding: 0;
+}
+ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+a{
+  /* inherit는 부모 값을 상속받는다. */
+ color: inherit;
+ text-decoration: none;
+}
+/* 숨김 콘텐츠 */
+
+body{
+  background-color:#FFF;
+  font-size: 1.4rem;
+  color: #181818;
+  font-family: 'Spoqa Han Sans';
+}
+html{
+  font-size: 10px;
+}
+
+/*  */
+
+/* 레이아웃 */
+/*border 안에 3가지 속성이 있다. 구분은 공백으로 되어있다.
+  border-width(테두리)에 top,right,bottom,left가 다 포함되어있다. 
+  auto property는 margin에서 사용한다. padding은 사용 못한다.*/
+.wrapper{
+  background-image: url("images/bg_flower.png");
+  background-position: 50% 0;
+  /* 배경 반복 설정 */
+  background-repeat: no-repeat;
+   /*배경은 고정이고 콘텐츠만 움직인다.*/
+  background-attachment: fixed;
+ }
+.header, .visual, .main, .slogan, .footer{
+  width: 940px;
+  margin: 0 auto;
+}
+.header{
+  background-color: #fff;
+  padding: 0 30px 40px;
+  position: relative;
+  border-radius: 0 0 15px 15px;
+} 
+/* 로고 */
+.logo{
+  position: absolute;
+  top: 45px;
+  left: 65px;
+}
+/* member 링크 */
+.member{
+  /*text-align은 member 클래스의 자식 요소의 li의 방향을 설정한다.
+    즉, text-align:rignt 값을 줘서 member의 li 방향을 right로 지정했다.*/
+  text-align: right;
+  font-size:  0;
+  padding: 10px 0;
+  position: relative;
+  right: -10px;
+}
+/* member에 포함된 li */
+.member li{
+  
+  /* 모양은 inline 성격은 블록 */
+  display: inline-block;  
+  font-size: 1.4rem;
+  /* 소문자를 대문자로 변환 */
+  text-transform: uppercase;
+ 
+}
+
+.member a{
+  padding: 5px 10px;
+ 
+}
+/* li가 가지고 있는 자식 중에 자식번째를 선택하겠다 */
+/* .member li:nth-child(2){
+  background-color: lime;
+} */
+/* li가 가지고 있는 자식 중에 2번째 부터 선택하겠다. ::before(가짜 선택자)-li 앞에 위치.  */
+.member li:nth-child(n+2)::before{
+  content: ":";
+}
+/* 메인 메뉴 */
+.readable-hidden, legend{
+  position: absolute;
+  /* h2.readable-hidden의 사이즈를 width 1 height 1을 주고 0,0,0,0 사이즈로 잘랐다.
+     그래서 디자인이 숨김처리 되어 보인다. */
+  width: 1px;
+  height: 1px;
+  /* 네모 모양으로 자른다.(클립) */
+  clip: rect(0,0,0,0);
+  margin: -1px;
+  /* overflow: hidden; */
+
+}
+.menu{
+  padding-left: 225px;
+  /* background: orange; */
+  /* background-color: yellow; */
+  /* 배경 이미지. bgi 에밋. 박스 사이즈에 맞춰 설정된다. */
+  /* background-image: url("images/ani_flower_03.png"); */
+  /* background-repeat: no-repeat; */
+  /* 배경 이미지 포지션 x축 y축 */
+  /* background-position: 50% 30%; */
+  /* 배경 이미지 사이즈 */
+  /* background-size: 200px 200px; */
+  /* 배경 색, 배경 이미지 경로, 배경 no-repeat, 배경 이미지 포지션, 배경 이미지 사이즈 */
+  /* background: yellow url("images/ani_flower_03.png") no-repeat 50% 30% /200px 2200px; */
+  background:  linear-gradient(to bottom, #db8c2b 1%,#e58124 33%,#e58124 65%,#db8c2b 100%);
+  background-color: #e58124;
+  /* 배경 이미지 그라데이션 */
+  /* background-image: linear-gradient(-45deg, red 0%, green 30%, blue 100%); */
+  /* background-image: repeating-linear-gradient(-45deg, red 0, red 50px, green 50px, green 100px); */
+  /* 보더 속성 */
+  /* border는 박스 사이즈에 영향을 준다. 각종 데코 가능 */
+  border-top: 2px solid #000;
+  /* 박스 모서리의 둥근 모양 설정 */
+  border-radius: 0 0 5px 5px;
+  /* border-bottom-right-radius: 100px 50px; */
+  /* border-bottom-left-radius: 100px 50px; */
+  /* outline은 박스 사이즈에 영향 안준다. 4 방향 고정(선택 불가능).  데코 가능 */
+  /* outline: 10px dashed blue; */
+  /* 박스 쉐도는 박스 사이즈에 영향 안준다. 데코 불가능(그림자는 가능) 
+     x축 y축*/
+  /* box-shadow: 0 20px 0 0 green; */
+  height: 47px;
+}
+.menu-item{
+
+  float: left;
+  position: relative;
+  }
+  .menu-item-text{
+    color: #fff;
+    font-weight: 700;
+    padding: 0 20px;
+    font-size: 1.6rem;
+    text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000;
+    display: inline-block;
+    line-height: 45px;
+    border-left: 2px solid rgba(255, 255, 255, 0.5);
+  }
+  /* 메뉴 아이템 텍스트에 마우스를 올릴때 에프터가 적용된다. */
+  .menu-item-text:hover::after{
+    content: "";
+    background-color: #000;
+    display: block;
+    height: 2px;
+  }
+  /* 메뉴에 마우스를 올려을때 */
+  .menu-item-text:hover{
+    color: yellow;
+    cursor: pointer;
+    
+  }
+.submenu{
+  position: absolute;
+  top: 50px;
+  /* 부모가 블록 박스만 사용 가능하고 줄바꿈을 하지 않는다. 블록 박스 안에 포함된 인라인 박스의 줄바꿈을 금지한다. */
+  white-space: nowrap;
+}
+.submenu li{
+  display: inline-block;
+  cursor: pointer;
+}
+.submenu a{
+  display: inline-block;
+  padding: 8px 5px 10px 0;
+  margin-right: 10px;
+}
+.submenu a::before{
+  font-family: "fontello";
+  content: '\f192';
+}
+.submenu a:hover::before{
+  content: '\e800';
+  
+}
+
+/* 메뉴 아이템 서브메뉴에 자식번째 */
+.menu-item:nth-child(1) .submenu{
+  display: none;
+  left: 0;
+}
+.menu-item:nth-child(2) .submenu{
+  display: none;
+  left: 0;
+}
+.menu-item:nth-child(3) .submenu{
+  display: none;
+  left: 0;
+}
+.menu-item:nth-child(4) .submenu{
+  display: none;
+  left: 0;
+  
+}
+.menu-item:nth-child(5) .submenu{
+  display: none;
+  left: 0;
+}
+.menu-item:nth-child(6) .submenu{
+  display: none;
+  left: 0;
+}
+/* 비주얼 */
+@keyframes textAni{
+  0%{
+    font-size: 12px;
+    color: rgba(0,0,0,0);
+    transform: translate(0, 0);
+    /* 박스 유지 */
+    opacity: 1;
+  }
+  100%{
+    font-size: 24px;
+    color: rgba(0,0,0,1);
+    transform: translate(400px, 75px);
+    opacity: 1;
+  }
+}
+@keyframes flowerAni{
+  0%{
+    opacity: 1;
+  }
+  100%{
+    /* 박스 투명 */
+    opacity: 0;
+  }
+}
+.visual{
+  
+  height: 120px;
+  position: relative;
+}
+.visual::before, .visual::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+}
+.visual::before{
+  
+  background-image: url("images/ani_flower_01.png"), url("images/ani_flower_02.png");
+  /* 배경 반복 설정 */
+  background-repeat: no-repeat;
+  /* 배경 위치 */
+  background-position: 0 -10px, 670px 0;
+  /* animation: flowerAni 5 timing-function delay 5 direction fill-mode; */
+  animation-name: flowerAni;
+  animation-duration: 5s;
+  animation-iteration-count: 3;
+  animation-direction: alternate;
+}
+.visual::after{
+
+  background-image: url("images/ani_flower_03.png"), url("images/ani_flower_04.png");
+  background-repeat: no-repeat;
+  background-position: 300px 0, 800px 0;
+  /* animation: flowerAni 5 timing-function delay 5 direction fill-mode;*/
+  animation-name: flowerAni;
+  animation-duration: 5s;
+  animation-iteration-count: 3;
+  animation-delay: 1s;
+} 
+.visual-text{
+  /* background-color: purple; */
+  /* 글꼴의 순위 1,2,3,4 */
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  /* 애니메이션 실행 필수 조건 name, duration */
+  /* animation-name: textAni;
+  animation-duration: 3000ms;
+  /* 애니메이션 끝나고 유지 된다. */
+  /* animation-fill-mode: forwards; */
+  position: absolute;
+  z-index: 10;
+  /* 에니메이션 반복 횟수 모드 설정 */
+  /* animation-iteration-count: 3; */
+  /* animation-play-state: paused; */
+  /* animation-timing-function: cubic-bezier(16,-0.36,.83,.67); */
+  /* 애니메이션 진행 방향 */
+  /* animation-direction: alternate;
+  animation-delay: 2s;
+  opacity: 2; */ 
+  /* 애니메이션 이름, 지속 시간, ?, 반복 회수, 진행 방향, 딜레이 */
+  animation: textAni 5000ms forwards infinite alternate ease-in-out 2s;
+}
+.main{
+  background-color: white; 
+  border-radius: 15px 15px 0 0;
+  padding: 30px 15px;
+   /* overflow: hidden독립적으로 내가 가지고 있는 자식 요소까지 블럭라인을 만든다.; */
+
+}
+/* 가짜로 만든 인라인 요소 박스 반드시 콘텐트 속성을 써야함 
+   before는 선택자. content도 가짜이다.*/
+/* .main::before{
+content: "첫뻔째 자식 요소";
+background-color: gray;
+color: white;
+} */
+.clearfix::after{
+  content:"";
+  clear: both;
+  display: block;
+  }
+/*  */
+/* .clearfix{
+  clear: both;
+} */
+.group{
+  float: left;
+  margin: 0 15px;
+}
+.group1{
+  background-color: rgba(255,255,255,.5);/*마지막에는 투명도를 설정한다.*/
+  width: 250px;
+  float: left;
+}
+.group2{
+  width: 380px;
+}
+.group3{
+  background-color: tomato;
+  width: 189px;
+}
+/* 로그인 */
+.login{
+  background: radial-gradient(circle at right top, #ea892e, #ce5327);
+  background-color: #ce5327;
+  border-radius: 5px 5px 5px 5px;
+  padding: 10px;
+  box-shadow: 5px 5px 0 0 #aaa;
+}
+.login-heading{
+  color: #ff0;
+  font-size: 1.5rem;
+}
+.login-form{
+  background-color: #fff;
+  border-radius: 5px 5px 0 0;
+  padding: 10px 10px 0 10px;
+  margin-top: 10px;
+}
+.login-form fieldset{
+  position: relative;
+  margin: 0;
+  padding: 0 0 10px 0;
+  border: 0;
+  border-bottom: 1px solid #aaa;
+}
+.login-form [type="email"], .login-form [type="password"]{
+  width: 100px;
+  height: 22px;
+  border: 1px solid #aaa;
+  padding: 1px 1px 1px 5px;
+}
+
+.user-id{
+  margin-bottom: 6px;
+}
+.sign{
+  background-color: #fff;
+  border-radius: 0 0 5px 5px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px;
+}
+.sign a{
+  letter-spacing: -1px;
+  padding: 5px 0;
+}
+.sign .icon-right-open::before{
+  color: #db8c2b;
+}
+.login-form [for="user-id"], .login-form [for="user-pw"]{
+  width: 4em;
+  display: inline-block;
+}
+.btn-login{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border: 0 solid #aaa;
+  border-radius: 3px;
+  background: orangered;
+  color: #fff;
+  font: inherit;
+}
+/* .login{
+  background-color: orange;
+  border-radius: 5px 5px 5px 5px;
+  padding: 10px;
+}
+.login-heading{
+  color: ivory;
+  padding: 15px 0 0 20px;
+}
+.login-form{
+  padding: 10px;
+  background-color: #fff;
+}
+.login-form fieldset{
+  position: relative;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+.user-id{
+  margin: 0 0 8px 0;
+}
+.user-id label{
+  width: 51px;
+  display: inline-block;
+}
+.user-id input{
+  width: 98px;
+}
+.user-pw{
+  margin: 0 0 0 0;
+  padding: 0 0 10px 0;
+  border-bottom: 2px solid gray;
+}
+.user-pw label{
+  display: inline-block;
+}
+.user-pw input{
+  width: 98px;
+}
+.btn-login{
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  top: 0;
+  right: 0;
+  background-color: orange;
+  color: #fff;
+  border-radius: 5px 5px 5px 5px;
+  border: none;
+}
+
+
+.sign{
+  background-color: #fff;
+  height: 42px;
+}
+.sign li:nth-child(1){
+  float: left;
+}
+.sign li:nth-child(2){
+  float: right;
+}
+.sign a{
+  padding: 0 5px;
+} */
+
+/* 유효성 검사 배너 */
+.validation-list{
+
+  margin-top: 25px;
+}
+.validation-list li{
+  margin: 10px 0;
+}
+.validation-list a{
+  /* 백그라운드 이미지 밑에 리니어 그라데이션을 깔았다. 이미지를 x축으로 15px y축으로 50% 움직였다. */
+  background: url("images/validation_icon.png") no-repeat 15px 50%, linear-gradient(to bottom, #eee, #ccc);
+  background-color: #ccc;
+  display: block;
+  border: 1px solid #aaa;
+  border-radius: 30px;
+  line-height: 30px;
+  padding-left: 45px;
+}
+/* 웹 관련 용어 */
+.term{
+  /* height: 152px; */
+  background: linear-gradient(to bottom, #eee, #ccc );
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin-top: 20px;
+}
+.term-ground{
+  font-size: 1.5rem;
+  
+}
+.term-list{
+  margin: 10px 0 0 0;
+}
+/* img{
+  float: left;
+  padding-right: 14px;
+} */
+.term-list-subject{
+  float: right;
+  color: cornflowerblue;
+  font-weight: 800;
+  width: 145px;
+}
+.term-list-thumbnail{
+  margin: 0;
+  float: left;
+}
+/* .term-list :nth-child(4), .term-list :nth-child(5){
+  margin-top: 10px;
+}
+.term-list :nth-child(4), .term-list :nth-child(6){
+  float: left;
+  }
+.term-list :nth-child(5){
+  float: right;
+} */
+.term-list-brief{
+   float: right;
+   margin: 0;
+   width: 145px;
+   margin-top: 5px;
+   line-height: 1.5;
+}
+/* 자료 검색 */
+/*  */
+/* .search-form fieldset{
+  background-color: yellow;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  
+}  */
+.search-form{
+  background: linear-gradient(to bottom, #eee, #ccc);
+  background-color: #ccc;
+  border: 1px solid #aaa;
+  border-bottom: 0;
+  border-radius: 15px 15px 0 0;
+  padding: 15px 25px 10px;
+}
+.search-form fieldset{
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.search-form-wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  
+  
+}
+
+.search-form [type="search"]{
+  width: 200px;
+  height: 24px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  padding: 1px 1px 1px 5px;
+}
+.btn-search{
+  background: #333;
+  color: #fff;
+  font: inherit;
+  border: 1px solid #aaa;
+  height: 24px;
+  border-radius: 3px;
+}
+/* 게시판 */
+/* .board{
+  
+  position: relative;
+  margin-top: 20px;
+}
+
+.notice-heading.tab, .pds-heading.tab{
+  position: absolute;
+  border: 1px solid #ccc;
+  width: 82px;
+  height: 28px;
+  cursor: pointer;
+  background: linear-gradient(to bottom, #eee, #ccc);
+  background-color: #ccc;
+  border-radius: 5px 5px 0 0;
+  font-size: 1.8rem;
+  text-align: center;
+  font: inherit;
+  line-height: 30px;
+}
+
+.pds-heading.tab{
+  top: 0;
+  left: 82px;;
+}
+
+.notice-list {
+  
+  padding-top: 48px;
+}
+.pds-list, .pds a{
+  display: none;
+}
+.notice-list li, .pds-list li{
+display: flex;
+justify-content: space-between;
+line-height: 35px;
+clear: both;
+}
+
+.notice-more, .pds-more{
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 16px;
+} */
+.board{
+  background-color: yellow;
+  margin-top: 20px;
+  position: relative;
+}
+.tab{
+  border: 1px solid #aaa;
+  border-radius: 5px 5px 0 0;
+  background: linear-gradient(to bottom, #eee, #ccc);
+  background-color: #ccc;
+  color: #666;
+  font-size: 1.4rem;
+  font-weight: 400;
+  padding: 5px 10px;
+  position: absolute;
+  top: 0;
+  cursor: pointer;
+}
+.pds-heading{
+  left: 73px;
+}
+.is-act .tab{
+  background: #fff;
+  border-color: #ce5327 #ce5327 #fff #ce5327;
+  color: #ce5327;
+}
+.notice-list, .notice-more, .pds-list, .pds-more{
+  display: none;
+}
+.is-act .notice-list, .is-act .notice-more, .is-act .pds-list, .is-act .pds-more{
+  display: block;
+}
+.notice-list, .pds-list{
+  padding-top: 45px;
+  background-color: pink;
+}
+.notice-list li, .pds-list li{
+  background-color: skyblue;
+  margin-bottom: 10px;
+}
+.notice-list li::after, .pds-list li::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.notice-list li::before, .pds-list li::before{
+  vertical-align: middle;
+  background: yellow;
+  float: left;
+}
+.notice-list a, .pds-list a{
+  background: orange;
+  width: calc(100% - 105px);
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.notice-list time, .pds-list time{
+  background: lime;
+  margin-left: auto;
+  float: right;
+}
+.notice-more::before, .pds-more::before{
+  color: hsla(120, 40%, 30%, 0.5);
+}
+.notice-more, .pds-more{
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 8px;
+}
+/* 새소식 */
+/* .news{
+  background: yellow;
+  margin-top: 20px;
+  position: relative;
+}
+.news-heading{
+  padding-bottom: 16px; 
+}
+.news-item{
+  background: #ce5327;
+}
+.news-item-heading{
+  position: relative;
+  background: pink;
+  left: 148px;
+  display: inline-block;
+}
+.news-item-date{
+  display: block;
+  position: relative;
+  text-align: center;
+}
+.news-item-brief{
+  position: relative;
+  width: 240px;
+  left: 146px;
+} */
+.news{
+
+  position: relative;
+  margin-top: 20px;
+}
+.news::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 30px;
+  height: 1px;
+  width: 80%;
+  background: linear-gradient(to right, #aaa, #ccc);
+}
+.news-heading{
+  font-size: 1.5rem;
+  color: #ce5327;
+}
+.news-link{
+  display: block;
+  outline-offset: 5px;
+}
+.news-item{
+  background: yellow;
+  margin-top: 35px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 120px 15px 1fr;
+      grid-template-columns: 120px 15px 1fr;
+  -ms-grid-rows: auto auto auto;
+      grid-template-rows: auto auto auto;
+  /* grid-column-gap: 15px;
+  grid-template-areas: "thumbnail heading"
+                       "thumbnail date"
+                       "thumbnail brief"; */
+}
+.news-item-heading{
+  background: pink;
+  /* grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;*/
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2; 
+  -ms-grid-column:  3; 
+  -ms-grid-column-span:  1; 
+  grid-column:  3/4;
+  /* grid-area: heading; */
+}
+.news-item-date{
+  background: lime;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  /* grid-area: date; */
+}
+.news-item-brief{
+  background: orange;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3/4;
+  /* grid-area: brief; */
+}
+.news-item-thumbnail{
+  background: teal;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+  grid-row: 1/4;
+  margin: 0;
+  /* grid-area: thumbnail; */
+}
+.news-more{
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  padding: 8px;
+}
+.news-more::before{
+  color: hsla(110, 40%, 30%, 1)
+}
+  /* 슬로건 */
+.slogan{
+background-color: blueviolet;
+height: 10vh;
+clear: both;
+font-weight: inherit; 
+}
+.footer-bg{
+  background-color: orange;
+}
+.footer{
+  background-color: silver;
+  height: 10vh;
+}
