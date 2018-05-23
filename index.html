@@ -8,8 +8,12 @@
     <link rel="shortcut icon" href="images/common/webcafe.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="images/common/webcafe.png">
     <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/grid.css"> -->
     <!-- <link rel="stylesheet" href="css/flex.css"> -->
     <!-- <link rel="stylesheet" href="css/float.css"> -->
+    <!-- html 파싱과 스크립트 파일 다운로드를 동시에 하면서 파싱이 끝나면 스크립트가 작동한다. -->
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/menu-tab.js" defer></script>
 </head>
 <body>
   
@@ -197,31 +201,31 @@
                             <div class="search-form-wrapper">
                             <label for="search" class="icon-search">자료검색</label><input type="search" id="search" placeholder="검색어를 입력하세요." required>
                             <button type="submit" class="btn-search">검색</button>
-                        </div>
+                            </div>
                         </fieldset>
                     </form>
                     <div class="board">
                             <section class="notice is-act">
                               <h2 class="notice-heading tab" tabindex="0">공지사항</h2>
                               <ul class="notice-list">
-                                <li>
-                                  <a href="#" class="icon-dot-circled">HTML의 모든 것을 알려주마 샘플 활용법</a>
+                                <li class="icon-dot-circled">
+                                  <a href="#">HTML의 모든 것을 알려주마 샘플 활용법</a>
                                   <time datetime="2018-05-22T15:55:30">2018.05.23</time>
                                 </li>
-                                <li>
-                                  <a href="#" class="icon-dot-circled">W3C 사이트 리뉴얼 및 공지사항</a>
+                                <li class="icon-dot-circled">
+                                  <a href="#">W3C 사이트 리뉴얼 및 공지사항</a>
                                   <time datetime="2018-05-22T15:55:30">2018.05.23</time>
                                 </li>
-                                <li>
-                                  <a href="#" class="icon-dot-circled">KWCAG 2.1 소식</a>
+                                <li class="icon-dot-circled">
+                                  <a href="#">KWCAG 2.1 소식</a>
                                   <time datetime="2018-05-22T15:55:30">2018.05.23</time>
                                 </li>
-                                <li>
-                                  <a href="#" class="icon-dot-circled">서버 점검으로 인한 사이트 이용안내 입니다.</a>
+                                <li class="icon-dot-circled">
+                                  <a href="#">서버 점검으로 인한 사이트 이용안내 입니다.</a>
                                   <time datetime="2018-05-22T15:55:30">2018.05.23</time>
                                 </li>
-                                <li>
-                                  <a href="#" class="icon-dot-circled">여러분들이 생각하는 웹 접근성에 대해 이야기를 나누어 봅시다.</a>
+                                <li class="icon-dot-circled">
+                                  <a href="#">여러분들이 생각하는 웹 접근성에 대해 이야기를 나누어 봅시다.</a>
                                   <time datetime="2018-05-22T15:55:30">2018.05.23</time>
                                 </li>
                               </ul>
@@ -230,24 +234,24 @@
                             <section class="pds">
                               <h2 class="pds-heading tab" tabindex="0">자료실</h2>
                               <ul class="pds-list">
-                                <li>
-                                  <a href="#" class="icon-dot-circled">디자인 사이트 링크 모음</a>
+                                <li class="icon-dot-circled">
+                                  <a href="#">디자인 사이트 링크 모음</a>
                                   <time datetime="2018-05-22T15:55:30">2018.05.23</time>
                                 </li>
-                                <li>
-                                  <a href="#" class="icon-dot-circled">웹 접근성 관련 자료 모음</a>
+                                <li class="icon-dot-circled">
+                                  <a href="#">웹 접근성 관련 자료 모음</a>
                                   <time datetime="2018-05-22T15:55:30">2018.05.23</time>
                                 </li>
-                                <li>
-                                  <a href="#" class="icon-dot-circled">예제 샘플 응용해보기</a>
+                                <li class="icon-dot-circled">
+                                  <a href="#">예제 샘플 응용해보기</a>
                                   <time datetime="2018-05-22T15:55:30">2018.05.23</time>
                                 </li>
-                                <li>
-                                  <a href="#" class="icon-dot-circled">웹 접근성 향상을위한 국가 표준 기술 가이드라인</a>
+                                <li class="icon-dot-circled">
+                                  <a href="#">웹 접근성 향상을위한 국가 표준 기술 가이드라인</a>
                                   <time datetime="2018-05-22T15:55:30">2018.05.23</time>
                                 </li>
-                                <li>
-                                  <a href="#" class="icon-dot-circled">로얄티 프리 이미지 자료</a>
+                                <li class="icon-dot-circled">
+                                  <a href="#">로얄티 프리 이미지 자료</a>
                                   <time datetime="2018-05-22T15:55:30">2018.05.23</time>
                                 </li>
                               </ul>
@@ -255,9 +259,73 @@
                             </section>
                           </div>
                       </div>
+                      <section class="news">
+                        <h2 class="news-heading">새소식</h2>
+                        <a href="#" class="news-link">
+                          <article class="news-item">
+                            <h3 class="news-item-heading">W3C 사이트가 리뉴얼되었습니다.</h3>
+                            <time class="news-item-date" datetime="2017-09-19">2017.09.19</time>
+                            <p class="news-item-brief">
+                              디자인 및 다양한 view 환경을 고려하여 구성되어 있으며, 기존보다 최신 정보 및 개발자를 위한 기술 가이드도 찾기 쉽도록 구성되어 있습니다.
+                            </p>
+                            <figure class="news-item-thumbnail">
+                              <img src="images/news.gif" alt="HTML5를 발표하면서 새롭게 리뉴얼 된 W3C 공식 웹사이트">
+                              <figcaption>W3C 리뉴얼</figcaption>
+                            </figure>
+                          </article>
+                        </a>
+                        <a href="#" class="news-more icon-more-plus" title="새소식" target="_blank">더보기</a>
+                      </section>
                 </div>
-            </div>
-            <div class="group group3">GROUP3</div> 
+            <div class="group group3">
+                <div class="event-related">
+                    <section class="event">
+                        <h2 class="event-heading">신규<span>이벤트</span></h2>
+                        <div class="event-detail">
+                            <p class="event-thumbnail">
+                                <img src="images/free_gift.gif" alt="이벤트 경품 : 웹표준 핵심 가이드북 2 HTML5+CSS3 도서 증정">
+                            </p>
+                            <p class="event-brief">
+                                <em>웹표준 핵심 가이드부구 2 출시!</em> 선착순 500명 한정으로 증정.
+                            </p>
+                        </div>
+                        <div class="btn-event">
+                            <button type="button" class="btn-event-prev">이전 이벤트 보기</button>
+                            <button type="button" class="btn-event-next">다음 이벤트 보기</button>
+                        </div>
+                    </section>
+                    <section class="related">
+                        <h2 class="related-heading">관련<span>사이트</span></h2>
+                        <ul class="related-list">
+                            <li>
+                                <a href="#">패스트 캠퍼스</a>
+                            </li>
+                            <li>
+                                <a href="#">W3C</a>
+                            </li>
+                            <li>
+                                <a href="#">웹 접근성 연구소</a>
+                            </li>
+                            <li>
+                                <a href="#">CSS Zengarden</a>
+                            </li>
+                            <li>
+                                <a href="#">MDN</a>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+                <section class="favorite">
+                    <h2 class="favorite-heading">인기<span>사이트</span></h2>
+                    <ol class="favorite-list">
+                        <li><a href="#">W3C</a> <em class="up">상승</em></li>
+                        <li><a href="#">CSS Gengarden</a> <em class="down">하락</em></li>
+                        <li><a href="#">Web Standards</a> <em class="stop">멈춤</em></li>
+                        <li><a href="#">MDN</a> <em class="up">상승</em></li>
+                    </ol>
+                    <a href="#" class="favorite-more icon-plus" title="인기 사이트" target="_blank">더보기</a>
+                </section>
+            </div> 
         </main>
         <article class="slogan">
             <h2 class="slogan-heading">슬로건</h2>
