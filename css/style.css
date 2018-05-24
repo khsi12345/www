@@ -5,6 +5,7 @@
 /* 전체 요소에 박스 사이징을 보더 박스 모델로 하겠다. */
 *, *::before, *::after{
   box-sizing: border-box;
+  /* font: inherit; */
 }
 h1, h2, h3, h4, h5, h6{
   margin: 0;
@@ -23,7 +24,6 @@ a{
 /* 숨김 콘텐츠 */
 
 body{
-  background-color:#FFF;
   font-size: 1.4rem;
   color: #181818;
   font-family: 'Spoqa Han Sans';
@@ -39,10 +39,11 @@ html{
   border-width(테두리)에 top,right,bottom,left가 다 포함되어있다. 
   auto property는 margin에서 사용한다. padding은 사용 못한다.*/
 .wrapper{
-  background-image: url("images/bg_flower.png");
-  background-position: 50% 0;
+  background-color: #fff;
+  background-image: url("images/bg_flower.png"), linear-gradient(to bottom, #aaa 0%, #ccc 25%, #ccc 45%, #fff 100%);
+  background-position: 50% 0, 0 0;
   /* 배경 반복 설정 */
-  background-repeat: no-repeat;
+  background-repeat: no-repeat, repeat;
    /*배경은 고정이고 콘텐츠만 움직인다.*/
   background-attachment: fixed;
  }
@@ -223,6 +224,7 @@ html{
   0%{
     font-size: 12px;
     color: rgba(0,0,0,0);
+    /* 이동 */
     transform: translate(0, 0);
     /* 박스 유지 */
     opacity: 1;
@@ -230,6 +232,7 @@ html{
   100%{
     font-size: 24px;
     color: rgba(0,0,0,1);
+    /* 이동 */
     transform: translate(400px, 75px);
     opacity: 1;
   }
@@ -630,7 +633,7 @@ clear: both;
   font-size: 16px;
 } */
 .board{
-  background-color: yellow;
+
   margin-top: 20px;
   position: relative;
 }
@@ -663,10 +666,10 @@ clear: both;
 }
 .notice-list, .pds-list{
   padding-top: 45px;
-  background-color: pink;
+ 
 }
 .notice-list li, .pds-list li{
-  background-color: skyblue;
+  
   margin-bottom: 10px;
 }
 .notice-list li::after, .pds-list li::after{
@@ -676,11 +679,11 @@ clear: both;
 }
 .notice-list li::before, .pds-list li::before{
   vertical-align: middle;
-  background: yellow;
+  
   float: left;
 }
 .notice-list a, .pds-list a{
-  background: orange;
+ 
   width: calc(100% - 105px);
   display: inline-block;
   overflow: hidden;
@@ -688,7 +691,7 @@ clear: both;
   text-overflow: ellipsis;
 }
 .notice-list time, .pds-list time{
-  background: lime;
+
   margin-left: auto;
   float: right;
 }
@@ -783,24 +786,259 @@ clear: both;
 }
 /* 신규 이벤트 및 관련사이트 */
 .event-related{
-  background: yellow;
+  background: linear-gradient(to bottom, #eee, #ccc);
+  background-color: #ccc;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  padding: 10px;
 }
+.event{
+  border-bottom: 1px solid #aaa;
+  position: relative;
+}
+.event-heading, .related-heading{
+  font-size: 1.5rem;
+}
+.event-heading span, .related-heading span{
+  color: #ce5327;
+}
+.event-thumbnail, .event-brief{
+  margin:  10px 0;
+  font-style: normal;
+}
+.event-brief em{
+  font-style: normal;
+}
+.event-thumbnail img{
+  box-shadow: 5px 5px 0 0 #aaa;
+  border: 1px solid #999;
+}
+.btn-event{
+  background: yellow;
+  height: 22px;
+  overflow: hidden;
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  padding: 2px;
+ 
+}
+.btn-event-prev, .btn-event-next{
+  background: lime;
+  background-image: url("images/backpage_forwardpage.png");
+  background-repeat: no-repeat;
+  /* 백그라운드 컬러 투명색 */
+  background-color: transparent;
+  width: 19px;
+  border: 0;
+  padding: 0;
+  /* text 들여쓰기 */
+  text-indent: 30px;
+  white-space: nowrap;
+  /* height: 22px; */
+}
+.btn-event-next{
+  background-position: 100% 0;
+}
+.related{
+  margin-top: 10px;
+}
+.related-list{
+  margin-top: 10px;
+  background: white;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  height: 27px;
+  overflow: hidden;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-delay: 1s, 0s, 2s;
+}
+.related-list a{
+  display: block;
+  line-height: 25px;
+  /* text 들여쓰기 */
+  text-indent: 25px;
+}
+.related-list:hover{
+ height: 147px;
+ padding: 10px 0;
+ background: yellow;
+}
+
 /* 인기 사이트 */
 .favorite{
-  background: pink;
+  background: linear-gradient(to bottom, #eee, #ccc);
+  background-color: #ccc;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  padding: 10px 10px 5px 10px;
   margin-top: 20px;
+  position: relative;
+}
+.favorite-heading{
+  font-size: 1.5rem;
+}
+.favorite-heading span{
+  color: #ce5327;
+}
+.favorite-list{
+  background: lime;
+  margin: 5px 0 0 0;
+  padding: 0;
+  /* ol태그로 인해 숫자를 숨김. */
+  overflow: hidden;
+  /* line-height: 25px; */
+  counter-reset: number;
+}
+.favorite-list li{
+  margin: 5px 0;
+  counter-increment: number;
+  background: pink;
+  /* position: relative; */
+  display: flex;
+  align-items: center;
+}
+.favorite-list li::before{
+  content: counter(number);
+  color: white;
+  background: #999;
+  padding: 0 5px;
+  margin-right: 5px;
+  border-radius: 2px;
+  font-size: 1.1rem;
+}
+.up, .stop, .down{
+  width: 9px;
+  height: 0;
+  /* height: 0; */
+  padding-top: 11px;
+  margin-left: auto;
+  /* display: inline-block; */
+  /* float: right; */
+  overflow: hidden;
+  /* position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%); */
+  background-image: url("images/rank.png");
+  background-repeat: no-repeat;
+}
+.stop{
+  background-position: 0 50%;
+}
+.down{
+  background-position: 0 100%;
+}
+/* .favorite-list em{
+  float: right;
+  background-image: url("/css/images/rank.png");
+  background-repeat: no-repeat;
+  height: 25px;
+  width: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-indent: 15px;
+  padding-right: 10px; 
+  position: absolute;
+  text-indent: 120px;
+} */
+.favorite-more{
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  padding: 8px;
+  /* background: yellow; */
+}
+.favorite-more::before{
+  color: hsla(110, 40%, 30%, 1);
 }
   /* 슬로건 */
 .slogan{
-background-color: blueviolet;
-height: 10vh;
-clear: both;
-font-weight: inherit; 
+
+padding: 0 100px 0 180px;
+position: relative;
+}
+.slogan::after{
+  content: "";
+  clear: both;
+  display: block;
+}
+.slogan-heading{
+  padding-left: 10px;
+  width: 110px;
+  height: 83px;
+  text-align: center;
+  line-height: 83px;
+  font-size: 1em;
+  position: absolute;
+  left: 35px;
+  bottom: -30px;
+}
+.slogan-heading::after{
+  content: "";
+  display: block;
+  background-image: url("images/coffee.png");
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.slogan-content{
+  font-size: 1.5rem;
+  color: #987633;
+}
+.slogan-content q::before{
+  font-size: 3rem;
+  position: relative;
+  top: 10px;
+}
+.slogan-content q::after{
+  font-size: 3rem;
+  position: relative;
+  top: 10px;
 }
 .footer-bg{
-  background-color: orange;
+  
+    background-color: #fff;
+    background-image: url("images/bg_flower.png"), linear-gradient(to bottom, #aaa 0%, #ccc 45%, #fff 100%);
 }
 .footer{
-  background-color: silver;
-  height: 10vh;
+
+  position: relative;
+  padding: 10px 100px 10px 160px;
+}
+.footer-logo{
+  
+  position: absolute;
+  top: 35px;
+  left: 35px;
+}
+.guide{
+  background-color: #aaa;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 10px;
+  color: #fff;
+  padding: 2px 0;
+}
+.guide a{
+  
+  display: block;
+  padding: 8px 0;
+}
+
+.address{
+  
+  font-style: normal;
+  margin-top: 10px;
+  
+}
+
+.badge{
+  position: absolute;
+  top: 10px;
+  right: 0;
 }
