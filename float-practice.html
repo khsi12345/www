@@ -1,4 +1,4 @@
-
+<!-- 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -18,7 +18,6 @@ body {
 .container::after {
   content: "";
   clear: both;
-  /* background-color: lime; */
   border: 2px solid #ccc;
   background: #fff;
   display: block;
@@ -55,6 +54,77 @@ body {
     </div>
     <div class="right">
       <p><strong>right</strong></p>
+    </div>
+  </div>
+  <div class="footer">
+    <p>footer</p>
+  </div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>absolute</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-size: 1em;
+    }
+    body {
+      background: #fff;
+      margin: 10px;
+      font-size: .75em;
+    }
+    .header {
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 2px solid #ccc;
+    }
+    .container {
+      border: 2px solid #ccc;
+    }
+    .absolute1 {
+      /* position: absolute; */
+      float: left;
+      width: 500px;
+      padding: 10px;
+      border: 1px solid #181818;
+      background: yellowgreen;
+    }
+    .absolute2 {
+      /* position: absolute; */
+      float: left;
+      width: 400px;
+      padding: 10px;
+      border: 1px solid #181818;
+      background: blue;
+    }
+    .footer {
+      background: yellow;
+      margin-top: 10px;
+      padding: 10px;
+      border: 2px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <p>header</p>
+  </div>
+  <div class="container">
+    <div class="absolute1">
+      <p>
+        <strong>absolute1</strong>
+      </p>
+    </div>
+    <div class="absolute2">
+      <p>
+        <strong>absolute2</strong>
+      </p>
     </div>
   </div>
   <div class="footer">
